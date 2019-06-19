@@ -1,5 +1,5 @@
 # Python runtime
-FROM python:3.7.2-alpine
+FROM python:3.7.3-alpine
 
 # Set working directory
 WORKDIR /home
@@ -8,15 +8,7 @@ WORKDIR /home
 COPY . .
 
 # Install dependencies
-RUN pip install python-dotenv
-RUN pip install babel
-RUN pip install certifi
-RUN pip install wincertstore
-RUN pip install flask-babel
-RUN pip install markupsafe
-RUN pip install flask_table
-RUN pip install pytz
-RUN pip install jsonschema
+RUN pip install -r requirements.txt
 
 # Open port
 EXPOSE 5000
