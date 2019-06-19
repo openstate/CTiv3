@@ -2,10 +2,11 @@
 FROM python:3.7.3-alpine
 
 # Set working directory
-WORKDIR /home
+WORKDIR /app
 
-# Copy source
-COPY . .
+VOLUME ["/app"]
+
+ADD requirements.txt .
 
 # Install dependencies
 RUN pip install -r requirements.txt
@@ -14,4 +15,4 @@ RUN pip install -r requirements.txt
 EXPOSE 5000
 
 # Execute command
-CMD ["python", "applicatie.py"]
+CMD ["python", "/app/applicatie.py"]
